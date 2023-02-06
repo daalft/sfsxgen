@@ -1,0 +1,171 @@
+<please-wait></please-wait>
+
+<div id="lp-banner">
+    <span id="lp-banner-text">Lesson preparer!</span>    
+</div>
+<div *ngIf="identified" class="navigation2">
+    <mat-chip-list>
+        <mat-chip class="mb2" (click)="navigate('home')">
+            Home
+        </mat-chip>
+        <mat-chip class="mb2" (click)="navigate('add')">
+            Add new text
+        </mat-chip>
+        <mat-chip class="mb2" (click)="navigate('view')">
+            View all texts
+        </mat-chip>
+        <mat-chip class="mb2" (click)="navigate('options')">
+            Options
+        </mat-chip>
+        
+    </mat-chip-list>
+</div>
+
+<div *ngIf="!identified" class="centrified">
+    <br/><br/>
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput type="text" #username required="true">
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" #password required="true">
+    </mat-form-field>
+    <br/><br/>
+    <button mat-button mat-raised-button color="primary" (click)="identify(username.value, password.value)">Login</button>
+</div>
+
+<div *ngIf="identified" class="margin-container">
+    <div *ngIf="currentPage=='home'">
+        Welcome to the Sfsxgen lesson preparer. 
+        <br/>
+        You can add new texts by following a few steps.
+
+    </div>
+    <div *ngIf="currentPage=='add'">
+        <h2>Add new text</h2>
+        
+        <div *ngIf="currentPageNumber==0">
+            <mat-form-field>
+                <input matInput type="number" placeholder="Lesson number" #ln>
+            </mat-form-field>
+            <mat-form-field style="width: 70%;">
+                <input matInput type="text" placeholder="Title" #title>
+            </mat-form-field>
+            <br/>
+            <mat-form-field style="width: 80%;">
+                <textarea matInput #newtext placeholder="Enter text here" cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="50"></textarea>
+            </mat-form-field>
+            <br/><br/>
+            <button mat-button mat-raised-button color="primary" (click)="process(ln.value, title.value, newtext.value)">Process!</button>
+        </div>
+        <div *ngIf="currentPageNumber==1">
+            <h3>Check information</h3>
+            <br/>
+            <div class="help-right">
+            <button *ngIf="!showValidPos" mat-button mat-raised-button (click)="togglePos()">Show available POS</button>
+            <button *ngIf="showValidPos" mat-button mat-raised-button (click)="togglePos()">Hide available POS</button>
+            <br/><br/>
+            <div *ngIf="showValidPos">
+                <div *ngFor="let vPos of validPos">
+                    {{vPos}}
+                </div>
+            </div>
+            </div>
+            <br/>
+            <table>
+                <tr>
+                    <th>Word</th>
+                    <th>Lemma</th>
+                    <th>POS</th>
+                    <th>Alternative answers <mat-icon inline="true" matTooltip="Enter an alternative answer or a list of comma-separated values. Leave blank to allow only the original answer.">help</mat-icon></th>
+                    <th>Multiple choice distractors (3)<mat-icon inline="true" matTooltip="Enter a comma-separated list of 3 distractors for multiple-choice questions.">help</mat-icon></th>
+                    <th>Exclude from exercise <mat-icon inline="true" matTooltip="Exclude this word from the automatic exercise generation.">help</mat-icon></th>
+                    <th>Delete</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let obj of posData; let i = index" class="uip">
+                    <td><mat-form-field><input matInput type="text" [value]="obj['text']" #text (blur)="posData[i]['text'] = text.value"></mat-form-field></td>
+                    <td><mat-form-field><input matInput type="text" [value]="obj['lemma']" #lemma (blur)="posData[i]['lemma'] = lemma.value"></mat-form-field></td>
+                    <!--<td>
+                        <mat-select [placeholder]="obj['pos']">
+                            <mat-option *ngFor="let vPos of validPos">{{vPos}}</mat-option>
+                        </mat-select>
+                    </td>-->
+                    <td><mat-form-field><input matInput type="text" [value]="obj['pos']" #pos (blur)="posData[i]['pos'] = pos.value"></mat-form-field></td>
+                    <td><mat-form-field><input matInput type="text" #altanswer (blur)="posData[i]['accept'] = altanswer.value"></mat-form-field></td>
+                    <td><mat-form-field><input matInput type="text" #distractors (blur)="posData[i]['distractors'] = distractors.value"></mat-form-field></td>
+                    <td><mat-checkbox #exclude (change)="posData[i]['exclude'] = exclude.checked"></mat-checkbox></td>
+                    <td><mat-icon (click)="deleteWord(i)" style="color: darkred; cursor: pointer;">delete_forever</mat-icon></td>
+                    <td><button *ngIf="obj['pos']==='PUNCT'" mat-button mat-raised-button (click)="insertLinebreak(i)" [disabled]="getIsDisabled(i)">Insert linebreak after this</button></td>
+                </tr>
+            </table>
+            <br/><br/>
+            <button mat-button mat-raised-button color="primary" (click)="next()">
+                Next
+            </button>
+            <!--
+            &nbsp;&nbsp;&nbsp;
+            <button mat-button mat-raised-button color="primary" (click)="back()">
+                Back
+            </button>
+            -->
+            &nbsp;&nbsp;&nbsp;
+            <button mat-button mat-raised-button color="primary" (click)="back()">Back</button>
+            &nbsp;&nbsp;&nbsp;
+            <button mat-button mat-raised-button color="warn" (click)="discard()">
+                Discard
+            </button>
+            &nbsp;&nbsp;&nbsp;
+            <button mat-button mat-raised-button color="warn" (click)="debug()">Debug</button>
+        </div>
+        <div *ngIf="currentPageNumber==2">
+
+            <h3>Exercise options</h3>
+            <br/><br/>
+            Generate exercises for the following POS:
+            <br/>
+            <div *ngFor="let vPos of validPos">
+                <mat-checkbox checked="true" [value]="vPos">{{vPos}}</mat-checkbox>
+                <br/>
+            </div>
+
+            <br/>
+            <mat-checkbox checked="true" #notfirst>Exclude first sentence from exercise generation</mat-checkbox>
+            <br/>
+            <mat-checkbox checked="true" #notlast>Exclude last sentence from exercise generation</mat-checkbox>
+            <br/>
+            <br/>
+            Include only every 
+            <mat-form-field>
+            <mat-select #everyx value="4">
+                <mat-option value="2">2nd</mat-option>
+                <mat-option value="3">3rd</mat-option>
+                <mat-option value="4">4th</mat-option>
+                <mat-option value="5">5th</mat-option>
+            </mat-select>
+            </mat-form-field>
+            word for exercise generation
+            <br/><br/>
+            <button mat-button mat-raised-button color="primary" (click)="preview()">Preview exercise</button>
+            &nbsp;&nbsp;&nbsp;
+            <button mat-button mat-raised-button color="primary" (click)="back()">Back</button>
+            &nbsp;&nbsp;&nbsp;
+            <button mat-button mat-raised-button color="warn" (click)="discard()">
+                Discard
+            </button>
+        </div>
+        
+    </div>
+
+    <div *ngIf="currentPage=='view'">
+        <h2>View all texts</h2>
+    </div>
+
+    <div *ngIf="currentPage=='options'">
+        <h2>Options</h2>
+        <br/><br/>
+        Nothing to see here.
+    </div>
+</div>

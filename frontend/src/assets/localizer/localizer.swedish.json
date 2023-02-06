@@ -1,0 +1,42 @@
+{
+    "navigation-home": "Home",
+    "navigation-generate": "Generera",
+
+    "general-pos-NOUN": "substantiv",
+    "general-pos-VERB": "verb",
+    "general-pos-ADJ": "adjektiv",
+    "general-pos-PRON": "pronomen",
+    "general-pos-NUM": "räkneord",
+    "general-pos-ART": "artiklar",
+    "general-pos-ADV": "adverb",
+    "general-pos-SUBJ": "subjunktioner",
+    "general-pos-INTJ": "interjektioner",
+
+    "general-data-loading": "Laddar data...",
+
+    "menu-title": "Meny",
+    "menu-show-all-pos": "Visa alla ",
+    "menu-hide-all-pos": "Dölj alla ",
+    "menu-to-exercise": "Börja övningen",
+    "menu-target-items": "Ordförråd",
+    "menu-select-pos": "Välj ordklass",
+    "menu-select-lesson": "Välj lektion",
+    "menu-validate": "Godkänn",
+    "menu-back-to-pos-select": "Ändra inställningar",
+
+    "language-selection-menu": "Ändra språk",
+    "language-selection-english": "Engelska",
+    "language-selection-swedish": "Svenska",
+    "language-selection-russian": "Ryska",
+    "language-selection-ukrainian": "Ukrainska",
+
+    "lesson": "Lektion",
+
+    "exercise-check-answers": "Kontrollera svaren",
+    "exercise-show-answers": "Visa svaren",
+    
+    "results-correct": "Rätt svar",
+    "results-of": "av",
+
+    "error-lesson-not-found": "Fel: Lektionen hittades inte!"
+}

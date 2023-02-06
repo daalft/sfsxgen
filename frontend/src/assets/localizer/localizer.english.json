@@ -1,0 +1,48 @@
+{
+    "navigation-home": "Home",
+    "navigation-generate": "Generate",
+
+    "general-pos-NOUN": "nouns",
+    "general-pos-VERB": "verbs",
+    "general-pos-ADJ": "adjectives",
+    "general-pos-PRON": "pronouns",
+    "general-pos-NUM": "numerals",
+    "general-pos-ART": "articles",
+    "general-pos-ADV": "adverbs",
+    "general-pos-SUBJ": "subjunctions",
+    "general-pos-INTJ": "interjections",
+
+    "general-data-loading": "Loading data...",
+
+    "menu-title": "Menu",
+    "menu-show-all-pos": "Show all ",
+    "menu-hide-all-pos": "Hide all ",
+    "menu-to-exercise": "Start exercise",
+    "menu-target-items": "Target items",
+    "menu-select-pos": "Select category",
+    "menu-select-lesson": "Select lesson",
+    "menu-validate": "Validate",
+    "menu-back-to-pos-select": "Change parameters",
+    
+    "language-selection-menu": "Switch language",
+    "language-selection-english": "English",
+    "language-selection-swedish": "Swedish",
+    "language-selection-russian": "Russian",
+    "language-selection-ukrainian": "Ukrainian",
+
+    "lesson": "Lesson",
+
+    "exercise-check-answers": "Check answers",
+    "exercise-show-answers": "Show answers",
+    
+    "results-correct": "Correct answers",
+    "results-of": "of",
+
+    "error-lesson-not-found": "Error: Lesson not found!",
+
+    "cw-right": "RIGHT",
+    "cw-down": "DOWN",
+    "cw-hints": "Hints",
+    "cw-check-solution": "Check solution",
+    "cw-show-solution": "Show solution"
+}

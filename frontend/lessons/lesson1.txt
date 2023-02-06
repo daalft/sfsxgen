@@ -1,0 +1,33 @@
+#Vad heter du?
+
+- Hej! Vad heter du? Jag heter Sven.
+
+- Hej! Jag heter Oleksandr.
+
+- Hur stavar du ditt namn?
+
+- o, l, e, k, s, a, n, d, r
+
+- Tack! Jag kommer från Sverige. Vad kommer du ifrån?
+
+- Jag kommer från Ukraina.
+
+- Vad trevligt! Jag talar svenska, engelska och tyska. Vad talar du för språk?
+
+- Jag talar ukraiska, ryska och lite engelska. Jag lär mig svenska.
+
+- Har du telefon?
+
+- Ja! Mitt nummer är 012-45-67-89: noll, ett, två, fyra, fem, sex sju, åtta, nio.
+
+- Bra, tack!
+
+- Har du ett nummer? Kan jag ha ditt nummer?
+
+- Javisst! Mitt nummer är 031-987-65-43: noll, tre, ett, nio, åtta, sju, sex, fem, fyra, tre.
+
+- Bra, tack!
+
+- Ok! Jag ringer dig!
+
+- Vi ses!

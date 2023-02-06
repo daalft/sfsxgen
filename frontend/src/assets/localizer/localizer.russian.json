@@ -1,0 +1,42 @@
+{
+    "navigation-home": "Старт",
+    "navigation-generate": "Создать упражнение",
+
+    "general-pos-NOUN": "существительные",
+    "general-pos-VERB": "глаголы",
+    "general-pos-ADJ": "прилагательные",
+    "general-pos-PRON": "местоимения",
+    "general-pos-NUM": "числительные",
+    "general-pos-ART": "статьи",
+    "general-pos-ADV": "наречия",
+    "general-pos-SUBJ": "подключения",
+    "general-pos-INTJ": "междометия",
+
+    "general-data-loading": "Идет загрузка...",
+
+    "menu-title": "Содержание/Меню",
+    "menu-show-all-pos": "Показать все слова для изучения ",
+    "menu-hide-all-pos": "Скрыть все слова для изучения ",
+    "menu-to-exercise": "Начать упражнение",
+    "menu-target-items": "Слова для изучения",
+    "menu-select-pos":"Выбрать изучения",
+    "menu-select-lesson": "Выбрать урок",
+    "menu-validate": "Принимать",
+    "menu-back-to-pos-select": "Изменить параметры",
+
+    "language-selection-menu": "Переключить язык",
+    "language-selection-english": "Английский",
+    "language-selection-swedish": "Шведский",
+    "language-selection-russian": "Русский",
+    "language-selection-ukrainian": "Украинский",
+
+    "lesson": "Урок",
+
+    "exercise-check-answers": "Проверить ответы",
+    "exercise-show-answers": "Показать ответы",
+
+    "results-correct": "Правильно отвечено",
+    "results-of": "из",
+
+    "error-lesson-not-found": "Ошибка: Урок не найден!"
+}

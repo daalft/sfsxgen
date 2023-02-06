@@ -1,0 +1,33 @@
+<div class="margin-container">
+<div>
+    <div *ngFor="let row of cwdata; let i = index;">
+        <span *ngFor="let cell of row; let j = index;">
+            <input (keydown)="keyhandler($event,i,j)" type="text" class="cw-cell" [id]="getId(i,j)" *ngIf="cell!=='*'" maxlength="1" (focus)=getHintText(i,j)/>
+            <input type="text" class="cw-cell cw-hidden" [id]="getId(i,j)" *ngIf="cell==='*'" maxlength="1" disabled/>
+        </span>
+    </div>
+</div>
+
+<div class="cw-hints">
+    <h2>{{ls.localize('cw-hints')}}</h2>
+    
+    <div>
+        <ul>
+        <li>Vi gömmer <span class='hint hint1' (click)='jumpTo(0,10)'>(&#8595;)_______</span> med påskgodis i, och <span class='hint hint12' (click)='jumpTo(8,14)'>(&#8595;)____</span> letar efter dem.</li>
+        <li>Vi <span class='hint hint11' (click)='jumpTo(5,12)'>(&#8595;)______</span> <span class='hint hint10' (click)='jumpTo(3,3)'>(&#8595;)______</span> <span class='hint hint2' (click)='jumpTo(1,9)'>(&#8594;)________</span>.</li>
+        <li><span class='hint hint12' (click)='jumpTo(8,14)'>(&#8595;)____</span> har <span class='hint hint7' (click)='jumpTo(4,15)'>(&#8594;)_______</span> från <span class='hint hint16' (click)='jumpTo(13,13)'>(&#8594;)______</span> under påsken. De har <span class='hint hint4' (click)="jumpTo(1,15)">(&#8595;)_______</span>.</li>
+        <li>Det är <span class='hint hint5' (click)='jumpTo(3,1)'>(&#8594;)___</span> dagar på påsken: torsdag, fredag, <span class='hint hint15' (click)='jumpTo(9,17)'>(&#8595;)______</span>, söndag och måndag.</li>
+        <li>Påsk är viktig i <span class='hint hint6' (click)='jumpTo(2,8)'>(&#8595;)_______</span>.</li>
+        <li>Vi har <span class='hint hint7' (click)='jumpTo(4,15)'>(&#8594;)______</span> på fredag och på måndag.</li>
+        <li>Det är <span class='hint hint9' (click)='jumpTo(5,1)'>(&#8595;)___</span>. På våren firar vi påsk.</li>
+        <li>Vi äter <span class='hint hint10' (click)='jumpTo(3,3)'>(&#8595;)______</span> <span class='hint hint13' (click)='jumpTo(9,9)'>(&#8595;)_______</span>: ägg, <span class='hint hint3' (click)='jumpTo(2,4)'>(&#8594;)_____</span>, kyckling, potatis och sill.</li>
+        <li>Barnen klär sig ut till <span class='hint hint8' (click)='jumpTo(6,0)'>(&#8594;)_____________</span>, går till <span class='hint hint14' (click)='jumpTo(11,11)'>(&#8594;)_______</span> och får <span class='hint hint3' (click)='jumpTo(2,4)'>(&#8594;)_____</span>.</li>
+        <li>På påsken, jobbar vi <span class='hint hint17' (click)='jumpTo(14,8)'>(&#8594;)______</span> dagen på torsdag.</li>
+    </ul>
+    </div>
+    <br/><br/>
+
+    <button mat-button mat-raised-button color="primary" (click)="checkSolution()">{{ls.localize('cw-check-solution')}}</button>&nbsp;&nbsp;
+    <button mat-button mat-raised-button color="accent" (click)="showSolution()">{{ls.localize('cw-show-solution')}}</button>
+</div>
+</div>

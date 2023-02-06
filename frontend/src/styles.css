@@ -1,0 +1,274 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: OpenSans;
+    src: url('./assets/OpenSans-Regular.ttf');
+  }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: OpenSans, "Helvetica Neue", sans-serif; }
+
+#xgen-nav {
+    list-style: none;
+}
+
+#xgen-navbar {
+    height: 50px;
+    background-color: black;
+    
+}
+
+#xgen-nav li {
+    float: left;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#xgen-nav li a {
+    color: white;
+    text-decoration: none;
+}
+
+.row {
+    width: 100%;
+    display: block;
+}
+
+.panel-left {
+    width: 20%;
+    float: left;
+    
+    padding: 20px;
+}
+
+.panel-right {
+    width: 20%;
+    float: left;
+    
+    padding: 20px;
+}
+.panel-middle {
+    
+    width: 40%;
+    float: left;
+    padding: 20px;
+}
+.panel-end {
+    float: none;
+}
+
+.highlight {
+    background-color: rgba(0, 255, 98, 0.168);
+    border: 2px solid rgba(0, 223, 86, 0.493);
+    border-radius: 5px;
+    padding: 1px 2px;
+}
+
+.incorrect-answer {
+    background-color: rgba(107, 0, 0, 0.112);
+    color: rgb(87, 0, 0);
+}
+
+.correct-answer {
+    background-color: rgba(127, 255, 212, 0.562);
+    color: rgb(0, 70, 0);
+}
+
+.provided-answer {
+    background-color: rgba(255, 255, 0, 0.299);
+    color:rgb(0, 70, 0);
+}
+.title-row {
+    background-color: #0057b7;
+    font-size: 2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 20px;
+    color: white;
+}
+
+.section-header {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.margin-container {
+    margin: 20px;
+    padding: 20px;
+}
+
+.url-span {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.msbutton {
+    max-width: 200px;
+    white-space: normal !important;
+    word-wrap: break-word;
+}
+
+input[type=text].gap {
+    padding: 2px 4px;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 139, 0.37);
+    border-radius: 5px;
+  }
+
+  input[type=text].gap:focus {
+    border: 2px solid black;
+    outline: none;
+  }
+
+  input[type=text].cw-cell {
+    padding: 2px 4px;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 139, 0.37);
+    border-radius: 5px;
+  }
+
+  input[type=text].cw-cell:focus {
+    border: 2px solid black;
+    outline: none;
+  }
+
+  .cw-cell {
+      width: 45px;
+      height: 45px;
+      border: none;
+      outline: none;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 2em;
+      margin: 1px;
+      text-transform: uppercase;
+  }
+
+  .cw-hidden {
+    border: none !important;
+  }
+
+  .empty-cell {
+      display: inline-block;
+      width: 50px;
+      margin: 1px;
+  }
+
+  .cw-hints {
+      position: absolute;
+      top: 20px;
+      right: 200px;
+  }
+
+  .hint {
+    cursor: pointer;
+  }
+
+  .cw-correct-cell {
+      background-color: rgba(0, 128, 0, 0.315);
+      ;
+  }
+
+  .cw-incorrect-cell {
+      background-color: rgba(126, 0, 0, 0.288);
+  }
+
+  .active-hint {
+      border: 2px solid rgba(0, 128, 0, 0.445);
+      background-color: rgba(0, 128, 0, 0.288);
+      padding: 2px 1px;
+  }
+
+  @keyframes flicker {
+    from { background-color: rgba(127, 255, 212, 0.315); }
+    to { background-color: rgba(127, 197, 255, 0.26); }
+
+  }
+  #global-front-drop {
+    z-index: 9999;
+    cursor: progress;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    animation-name: flicker;
+    animation-delay: 0ms;
+    animation-direction: alternate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+
+  #waiting-animation {
+    position: absolute;
+    margin-left: auto;
+    width: 100%;
+    margin-right: auto;
+    top: 45%;
+    text-align: center;
+  }
+
+  #loading-text {
+    font-size: 1.5em;
+    font-family: OpenSans;
+  }
+
+  .centrified {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    text-align: center;
+    
+  }
+
+  #lp-banner {
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    line-height: normal;
+    background-color: #0057b7;
+    color: white;
+    font-size: 1.5em;
+  }
+
+  #lp-banner-text {
+    padding-top: 10px;
+    display: block;
+  }
+
+  .navigation2 {
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .mock-button {
+    user-select: none;
+    padding: 6px;
+    margin-left: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: 2px solid rgb(0, 0, 124);
+    border-radius: 5px;
+    background-color: rgba(173, 216, 230, 0.4);
+    display: inline-block;
+    
+  }
+
+  .mb2 {
+    cursor: pointer;
+  }
+
+  .mock-button:hover {
+    background-color: black;
+    color: white;
+  }
+
+  .mock-button:active {
+    transform:translate(1px, 1px);
+  }
+
+  .help-right {
+    position: absolute;
+    right: 90px;
+  }

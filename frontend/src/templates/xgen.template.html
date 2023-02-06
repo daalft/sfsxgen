@@ -1,0 +1,148 @@
+<div class="row">
+    <div class="title-row">
+        SwedishFromScratch
+        <div style="float:right">
+            <button mat-button [matMenuTriggerFor]="menu">{{ls.localize('language-selection-menu')}}</button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="changeLanguage('english')">{{ls.localize('language-selection-english')}}</button>
+                <button mat-menu-item (click)="changeLanguage('swedish')">{{ls.localize('language-selection-swedish')}}</button>
+                <button mat-menu-item (click)="changeLanguage('russian')">{{ls.localize('language-selection-russian')}}</button>
+                <!--<button mat-menu-item disabled="true">{{ls.localize('language-selection-ukrainian')}}</button>-->
+                </mat-menu>
+            </div>
+    </div>
+</div>
+
+<!--
+<div class="row">
+    
+<nav id="xgen-navbar">
+   
+    <ul id="xgen-nav">
+        <li><a routerLink="/">{{ls.localize('navigation-home')}}</a></li>
+        <li><a routerLink="">{{ls.localize('navigation-generate')}}</a></li>
+    </ul>
+   
+    
+</nav>  
+             
+</div>
+-->
+<br/>
+
+<div class="row">
+
+    <div class="panel-left">
+        <span class="section-header">{{ls.localize('menu-title')}}</span>
+        <br/><br/>
+        <div>
+        <div *ngIf="!lesson">
+            {{ls.localize('menu-select-lesson')}}
+            <br/><br/>
+            <mat-form-field>
+                <mat-select [(value)]="manualLesson">
+                    <mat-option *ngFor="let lessonNumber of validLessons" [value]="lessonNumber">
+                        {{lessonNumber}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br/><br/>
+            
+        </div>
+        <div *ngIf="!pos">
+            {{ls.localize('menu-select-pos')}}
+            <br/><br/>
+            <mat-form-field>
+                <mat-select [(value)]="manualPos">
+                    <mat-option *ngFor="let pos of validPos" [value]="pos">
+                        {{ls.localize('general-pos-' + pos)}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br/><br/>
+            
+        </div>
+        <div *ngIf="!pos||!lesson">
+        <button mat-button mat-raised-button (click)="manualSet();">
+            {{ls.localize('menu-validate')}}
+        </button>
+        </div>
+        </div>
+        <div  *ngIf="pos&&lesson">
+        <div *ngIf="pos">
+            <div *ngIf="!uiHighlight">
+            <button mat-button mat-raised-button (click)="highlight_words()" class="msbutton">
+                {{ls.localize('menu-show-all-pos')}} {{ls.localize('general-pos-' + pos)}}
+                </button>
+            </div>
+            <div *ngIf="uiHighlight">
+                <button mat-button mat-raised-button (click)="highlight_words()" class="msbutton">
+                    {{ls.localize('menu-hide-all-pos')}} {{ls.localize('general-pos-' + pos)}}
+                    </button>
+            </div>
+            <br/><br/>
+<div *ngIf="!doExercise">
+        <button mat-button mat-raised-button (click)="do_exercise()">{{ls.localize('menu-to-exercise')}}</button>
+    </div>           
+    <div *ngIf="doExercise">
+        <button mat-button mat-raised-button (click)="checkAnswers()" color="primary">{{ls.localize('exercise-check-answers')}}</button>
+            <br/><br/>
+            <button mat-button mat-raised-button (click)="showAnswers()" color="accent">{{ls.localize('exercise-show-answers')}}</button>
+            <div *ngIf="summary">
+                <br/>
+                {{ls.localize('results-correct')}}: <b>{{summary}}</b>
+            </div>
+        </div>
+            <br/><br/><br/>
+            <div *ngIf="!posFixed||!lessonFixed">
+        <button mat-button mat-raised-button (click)="backToPosSelect()" color="primary">
+            {{ls.localize('menu-back-to-pos-select')}}
+        </button>
+    </div>
+    </div>
+    <br/><br/>
+    </div>
+    </div>
+    <div class="panel-middle">
+        <div *ngIf="dataLoaded && !errorMsg">
+            <h2>{{ls.localize('lesson')}}: {{lessonTitle}}</h2>
+        </div>
+        <div *ngIf="!dataLoaded && !errorMsg">
+            {{ls.localize('general-data-loading')}}
+        </div>
+        <div *ngIf="errorMsg">
+            {{errorMsg}}
+        </div>
+        <div *ngIf="dataLoaded && !doExercise">
+            <!-- Show text -->
+            <span *ngFor="let token of tokens" [innerHtml]="token['word']" [ngClass]="{'highlight': token['gap'] && uiHighlight}"> </span>
+            <br/><br/>
+            
+        </div>
+        <div *ngIf="dataLoaded && doExercise">
+            <span *ngFor="let token of tokens">
+                <span *ngIf="token['gap']">
+                    <input type="text" class="gap" [size]="token['word'].length" [accept]="token['accept']"/> </span>
+                <span *ngIf="!token['gap']" [innerHtml]="token['word']"> </span>
+            </span>
+            <br/><br/>
+            
+            
+        </div> 
+    </div>
+    <div class="panel-right">
+        <div *ngIf="uiHighlight">
+            <span class="section-header">{{ls.localize('menu-target-items')}}</span>
+            <br/><br/>
+            <div *ngFor="let target of targets">{{target}}</div>
+        </div>
+    </div>
+    <div class="panel-end">&nbsp;</div>
+</div>
+
+<br/><br/>
+<!--
+<div class="row">
+Footer
+</div>
+-->
